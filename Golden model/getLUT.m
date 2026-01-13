@@ -23,18 +23,18 @@ function [LUTout,concat,sign] = getLUT(LUTin,constants,s)
             for i=1:size(LUTin,1)
                 if LUTin(i,j) ~= aux    % Compare the bits of the all columns
                     bool = 0;           % If they are different, the condition changes
-                endif
-            endfor
+                end
+            end
             if bool == 1                % If confdition does not change, the bits can be concatenated
                 concat = strcat(concat,LUTin(1:j));    % Save the bit to concatenate
                 LUTin(:,j)=[];          % Remove the bit from the look-up-table
                 break
-            endif
+            end
         end
         
         if bool == 0                    % If all the bits in a column are not equal, break the loop
             break
-        endif
+        end
     end
     
     % Remove first 0
@@ -43,8 +43,8 @@ function [LUTout,concat,sign] = getLUT(LUTin,constants,s)
       if concat(i)=="1"
         cond = 1;
         break
-      endif
-    endfor
+      end
+    end
 	
     if cond == 1
         while(1)

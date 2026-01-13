@@ -33,8 +33,8 @@ function [y] = binaryVectorToHex(x)
       aux = "E";
     elseif compare_vector(x(((i-1)*4)+1:((i-1)*4)+4),[1 1 1 1])
       aux = "F";
-    endif
+    end
 
     y = strcat(y,aux);
-  endfor
+  end
 end
